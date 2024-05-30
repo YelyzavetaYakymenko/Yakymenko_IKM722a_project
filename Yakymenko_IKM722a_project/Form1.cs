@@ -124,9 +124,12 @@ namespace Yakymenko_IKM722a_project
         }
         private void відкритиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (ofdOpen.ShowDialog() == DialogResult.OK) 
-
-{
+            if (ofdOpen.ShowDialog() == DialogResult.OK)
+            {
+                MajorObject.WriteOpenFileName(ofdOpen.FileName); // відкриття
+                MajorObject.ReadFromFile(dgwOpen); // читання даних з файлу
+            }
+            {
                 MessageBox.Show(ofdOpen.FileName);
             }
         }
@@ -173,6 +176,11 @@ namespace Yakymenko_IKM722a_project
         private void tbInput_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void bSearch_Click(object sender, EventArgs e)
+        {
+            MajorObject.Find(tbSearch.Text); //пошук
         }
     }
 
