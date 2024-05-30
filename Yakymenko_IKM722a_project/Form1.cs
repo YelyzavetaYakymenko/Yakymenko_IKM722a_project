@@ -109,7 +109,17 @@ namespace Yakymenko_IKM722a_project
             if (sfdSave.ShowDialog() == DialogResult.OK) // Виклик діалогу збереження файлу
             {
                 MajorObject.WriteSaveFileName(sfdSave.FileName); // Запис імені файлу для збереження
+                MajorObject.Generator();
                 MajorObject.SaveToFile(); // метод збереження в файл
+            }
+        }
+        private void зберегтиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            {
+                if (MajorObject.SaveFileNameExists()) // задане ім’я файлу існує?
+                    MajorObject.SaveToFile(); // зберегти дані в файл
+                else
+                    зберегтиЯкToolStripMenuItem_Click(sender, e); //
             }
         }
         private void відкритиToolStripMenuItem_Click(object sender, EventArgs e)
@@ -143,6 +153,26 @@ namespace Yakymenko_IKM722a_project
                 }
             }
             MessageBox.Show(disk, "Накопичувачі");
+        }
+
+        private void новийToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MajorObject.NewRec();
+            tbInput.Clear();// очистити вміст тексту
+            label1.Text = "";
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MajorObject.Modify)
+                if (MessageBox.Show("Дані не були збережені. Продовжити вихід?", "УВАГА",
+                MessageBoxButtons.YesNo) == DialogResult.No)
+                    e.Cancel = true; // припинити закриття
+        }
+
+        private void tbInput_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
