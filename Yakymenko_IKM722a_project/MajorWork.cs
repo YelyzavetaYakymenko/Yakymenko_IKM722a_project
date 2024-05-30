@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +16,8 @@ namespace Yakymenko_IKM722a_project
         private System.DateTime TimeBegin; // час початку роботи програми
         private string Data; //вхідні дані
         private string Result; // Поле результату
-                               // Методи
+        public bool Modify;
+        private int Key;// поле ключа
         public void Write(string D)// метод запису даних в об'єкт.
         {
             this.Data = D;
@@ -41,6 +45,36 @@ namespace Yakymenko_IKM722a_project
             else
             {
                 this.Result = Convert.ToString(false);
+            }
+            this.Modify = true;
+        }
+        public void SaveToFile() // Запис даних до файлу
+        {
+            if (!this.Modify)
+                return;
+            try
+            {
+                Stream S; // створення потоку
+                if (File.Exists(this.SaveFileName))// існує файл?
+                    S = File.Open(this.SaveFileName, FileMode.Append);// Відкриття файлу для збереження
+                else
+                    S = File.Open(this.SaveFileName, FileMode.Create);// створити файл
+                Buffer D = new Buffer(); // створення буферної змінної
+                D.Data = this.Data;
+                D.Result = Convert.ToString(this.Result);
+                D.Key = Key;
+                Key++;
+                BinaryFormatter BF = new BinaryFormatter(); // створення об'єкта для форматування
+                BF.Serialize(S, D);
+                S.Flush(); // очищення буфера потоку
+                S.Close(); // закриття потоку
+                this.Modify = false; // Заборона повторного запису
+            }
+            catch
+            {
+
+                MessageBox.Show("Помилка роботи з файлом"); // Виведення на екран повідомлення "Помилка роботи з файлом"
+
             }
         }
         private string SaveFileName;// ім’я файлу для запису

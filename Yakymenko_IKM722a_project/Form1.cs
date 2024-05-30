@@ -33,7 +33,7 @@ namespace Yakymenko_IKM722a_project
         {
             MajorObject = new MajorWork();
             MajorObject.SetTime();
-          
+            MajorObject.Modify = false;// заборона запису
             About A = new About(); // створення форми About
             A.tAbout.Start();
             A.ShowDialog(); // відображення діалогового вікна About
@@ -106,13 +106,12 @@ namespace Yakymenko_IKM722a_project
 
         private void зберегтиЯкToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (sfdSave.ShowDialog() == DialogResult.OK)
-
-{
-                MessageBox.Show(sfdSave.FileName);
+            if (sfdSave.ShowDialog() == DialogResult.OK) // Виклик діалогу збереження файлу
+            {
+                MajorObject.WriteSaveFileName(sfdSave.FileName); // Запис імені файлу для збереження
+                MajorObject.SaveToFile(); // метод збереження в файл
             }
         }
-
         private void відкритиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (ofdOpen.ShowDialog() == DialogResult.OK) 
