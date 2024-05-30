@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace Yakymenko_IKM722a_project
 {
@@ -18,6 +19,10 @@ namespace Yakymenko_IKM722a_project
         private string Result; // Поле результату
         public bool Modify;
         private int Key;// поле ключа
+        public Stack myStack = new Stack();
+        public string[] myArr = new string[100];
+        public Queue myQueue = new Queue();
+        public string[] smyQueue = new string[100];
         public void Write(string D)// метод запису даних в об'єкт.
         {
             this.Data = D;
