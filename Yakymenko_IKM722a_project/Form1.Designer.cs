@@ -62,12 +62,17 @@
             this.Stacktb = new System.Windows.Forms.TextBox();
             this.LabelStack = new System.Windows.Forms.Label();
             this.StackText = new System.Windows.Forms.Label();
-            this.LabelQueue = new System.Windows.Forms.Label();
             this.QueueText = new System.Windows.Forms.Label();
+            this.LabelQueue = new System.Windows.Forms.Label();
             this.Queuetb = new System.Windows.Forms.TextBox();
             this.Enqueue = new System.Windows.Forms.Button();
             this.Peek_q = new System.Windows.Forms.Button();
             this.Dequeue = new System.Windows.Forms.Button();
+            this.текстовіФайлиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.зберегтиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.зберегтиЯкToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.відкритиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwOpen)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -196,7 +201,8 @@
             this.роботаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.пускToolStripMenuItem,
             this.toolStripSeparator3,
-            this.проНакопичувачіToolStripMenuItem});
+            this.проНакопичувачіToolStripMenuItem,
+            this.текстовіФайлиToolStripMenuItem});
             this.роботаToolStripMenuItem.Name = "роботаToolStripMenuItem";
             this.роботаToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.роботаToolStripMenuItem.Text = "Робота";
@@ -205,19 +211,19 @@
             // 
             this.пускToolStripMenuItem.Name = "пускToolStripMenuItem";
             this.пускToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
-            this.пускToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.пускToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.пускToolStripMenuItem.Text = "Пуск";
             this.пускToolStripMenuItem.Click += new System.EventHandler(this.bStart_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(172, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // проНакопичувачіToolStripMenuItem
             // 
             this.проНакопичувачіToolStripMenuItem.Name = "проНакопичувачіToolStripMenuItem";
-            this.проНакопичувачіToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.проНакопичувачіToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.проНакопичувачіToolStripMenuItem.Text = "Про накопичувачі";
             this.проНакопичувачіToolStripMenuItem.Click += new System.EventHandler(this.проНакопичувачіToolStripMenuItem_Click);
             // 
@@ -257,7 +263,7 @@
             // 
             // bSearch
             // 
-            this.bSearch.Location = new System.Drawing.Point(633, 140);
+            this.bSearch.Location = new System.Drawing.Point(630, 46);
             this.bSearch.Name = "bSearch";
             this.bSearch.Size = new System.Drawing.Size(121, 56);
             this.bSearch.TabIndex = 5;
@@ -267,7 +273,7 @@
             // 
             // tbSearch
             // 
-            this.tbSearch.Location = new System.Drawing.Point(564, 202);
+            this.tbSearch.Location = new System.Drawing.Point(561, 108);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(190, 20);
             this.tbSearch.TabIndex = 6;
@@ -292,13 +298,14 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(757, 385);
+            this.tabPage1.Size = new System.Drawing.Size(780, 395);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Введення даних";
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.tabPage2.Controls.Add(this.richTextBox1);
             this.tabPage2.Controls.Add(this.dgwOpen);
             this.tabPage2.Controls.Add(this.tbSearch);
             this.tabPage2.Controls.Add(this.bSearch);
@@ -338,9 +345,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.IndianRed;
-            this.splitContainer1.Panel2.Controls.Add(this.LabelQueue);
-            this.splitContainer1.Panel2.Controls.Add(this.Dequeue);
             this.splitContainer1.Panel2.Controls.Add(this.QueueText);
+            this.splitContainer1.Panel2.Controls.Add(this.Dequeue);
+            this.splitContainer1.Panel2.Controls.Add(this.LabelQueue);
             this.splitContainer1.Panel2.Controls.Add(this.Peek_q);
             this.splitContainer1.Panel2.Controls.Add(this.Queuetb);
             this.splitContainer1.Panel2.Controls.Add(this.Enqueue);
@@ -413,24 +420,25 @@
             this.StackText.TabIndex = 6;
             this.StackText.Text = "Стек";
             // 
-            // LabelQueue
-            // 
-            this.LabelQueue.AutoSize = true;
-            this.LabelQueue.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelQueue.Location = new System.Drawing.Point(170, 80);
-            this.LabelQueue.Name = "LabelQueue";
-            this.LabelQueue.Size = new System.Drawing.Size(67, 28);
-            this.LabelQueue.TabIndex = 12;
-            this.LabelQueue.Text = "Черга";
-            // 
             // QueueText
             // 
             this.QueueText.AutoSize = true;
-            this.QueueText.Location = new System.Drawing.Point(184, 298);
+            this.QueueText.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.QueueText.Location = new System.Drawing.Point(170, 80);
             this.QueueText.Name = "QueueText";
-            this.QueueText.Size = new System.Drawing.Size(35, 13);
-            this.QueueText.TabIndex = 11;
-            this.QueueText.Text = "label2";
+            this.QueueText.Size = new System.Drawing.Size(67, 28);
+            this.QueueText.TabIndex = 12;
+            this.QueueText.Text = "Черга";
+            this.QueueText.Click += new System.EventHandler(this.LabelQueue_Click);
+            // 
+            // LabelQueue
+            // 
+            this.LabelQueue.AutoSize = true;
+            this.LabelQueue.Location = new System.Drawing.Point(184, 298);
+            this.LabelQueue.Name = "LabelQueue";
+            this.LabelQueue.Size = new System.Drawing.Size(35, 13);
+            this.LabelQueue.TabIndex = 11;
+            this.LabelQueue.Text = "label2";
             // 
             // Queuetb
             // 
@@ -468,6 +476,45 @@
             this.Dequeue.Text = "Dequeue";
             this.Dequeue.UseVisualStyleBackColor = true;
             this.Dequeue.Click += new System.EventHandler(this.Dequeue_Click);
+            // 
+            // текстовіФайлиToolStripMenuItem
+            // 
+            this.текстовіФайлиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.зберегтиToolStripMenuItem1,
+            this.зберегтиЯкToolStripMenuItem1,
+            this.відкритиToolStripMenuItem1});
+            this.текстовіФайлиToolStripMenuItem.Name = "текстовіФайлиToolStripMenuItem";
+            this.текстовіФайлиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.текстовіФайлиToolStripMenuItem.Text = "Текстові файли";
+            // 
+            // зберегтиToolStripMenuItem1
+            // 
+            this.зберегтиToolStripMenuItem1.Name = "зберегтиToolStripMenuItem1";
+            this.зберегтиToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.зберегтиToolStripMenuItem1.Text = "Зберегти";
+            this.зберегтиToolStripMenuItem1.Click += new System.EventHandler(this.зберегтиToolStripMenuItem1_Click);
+            // 
+            // зберегтиЯкToolStripMenuItem1
+            // 
+            this.зберегтиЯкToolStripMenuItem1.Name = "зберегтиЯкToolStripMenuItem1";
+            this.зберегтиЯкToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.зберегтиЯкToolStripMenuItem1.Text = "Зберегти як...";
+            this.зберегтиЯкToolStripMenuItem1.Click += new System.EventHandler(this.зберегтиЯкToolStripMenuItem1_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(561, 149);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(190, 177);
+            this.richTextBox1.TabIndex = 7;
+            this.richTextBox1.Text = "";
+            // 
+            // відкритиToolStripMenuItem1
+            // 
+            this.відкритиToolStripMenuItem1.Name = "відкритиToolStripMenuItem1";
+            this.відкритиToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.відкритиToolStripMenuItem1.Text = "Відкрити";
+            this.відкритиToolStripMenuItem1.Click += new System.EventHandler(this.відкритиToolStripMenuItem1_Click);
             // 
             // Form1
             // 
@@ -542,12 +589,17 @@
         private System.Windows.Forms.Label LabelStack;
         private System.Windows.Forms.TextBox Stacktb;
         private System.Windows.Forms.Label StackText;
-        private System.Windows.Forms.Label LabelQueue;
-        private System.Windows.Forms.Button Dequeue;
         private System.Windows.Forms.Label QueueText;
+        private System.Windows.Forms.Button Dequeue;
+        private System.Windows.Forms.Label LabelQueue;
         private System.Windows.Forms.Button Peek_q;
         private System.Windows.Forms.TextBox Queuetb;
         private System.Windows.Forms.Button Enqueue;
+        private System.Windows.Forms.ToolStripMenuItem текстовіФайлиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem зберегтиToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem зберегтиЯкToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem відкритиToolStripMenuItem1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 

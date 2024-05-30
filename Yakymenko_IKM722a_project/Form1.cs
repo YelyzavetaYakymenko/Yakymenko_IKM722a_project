@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
@@ -16,6 +17,7 @@ namespace Yakymenko_IKM722a_project
     public partial class Form1 : Form
     {
         private bool Mode;
+        private SaveFileDialog sf;
         private MajorWork MajorObject; // Створення об'єкта класу MajorWork
         ToolStripLabel dateLabel;
         ToolStripLabel timeLabel;
@@ -289,12 +291,12 @@ MajorObject.myStack.Push(Stacktb.Text);
         {
             MajorObject.myQueue.Enqueue(Queuetb.Text);
             MajorObject.smyQueue[MajorObject.myQueue.Count - 1] = Queuetb.Text;
-            LabelQueue.Text = "";
+            QueueText.Text = "";
             for (int i = 0; i < MajorObject.smyQueue.Length; i++)
             {
                 if (MajorObject.smyQueue[i] != null)
                 {
-                    LabelQueue.Text += MajorObject.smyQueue[i] + (char)13;
+                    QueueText.Text += MajorObject.smyQueue[i] + (char)13;
                 }
                 else
                 {
@@ -332,12 +334,12 @@ MajorObject.myStack.Push(Stacktb.Text);
                     MessageBox.Show("Dequeue " + MajorObject.myQueue.Dequeue());
                 }
                 // Формування текста для виведення на екран
-                LabelQueue.Text = "";
+                QueueText.Text = "";
                 for (int i = 0; i < MajorObject.smyQueue.Length - 1; i++)
                 {
                     if (MajorObject.smyQueue[i] != null)
                     {
-                        LabelQueue.Text += MajorObject.smyQueue[i] + (char)13;
+                        QueueText.Text += MajorObject.smyQueue[i] + (char)13;
                     }
                     else
                     {
@@ -346,6 +348,47 @@ MajorObject.myStack.Push(Stacktb.Text);
                 }
                 if (MajorObject.myQueue.Count == 0)
                     MessageBox.Show("\nОчередь пустая!");
+            }
+        }
+
+        private void зберегтиЯкToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sf = new SaveFileDialog();
+
+            sf.Filter = @"Текстовий файл (*.txt)|*.txt|Текстові файли
+TXT(*.txt)|*.txt|CSV-файл (*.csv)|*.csv|Bin-файл (*.bin)|*.bin";
+
+            if (sf.ShowDialog() == DialogResult.OK)
+            {
+                MajorObject.WriteSaveTextFileName(sf.FileName);
+                MajorObject.SaveToTextFile(sf.FileName, dgwOpen);
+            }
+        }
+
+        private void зберегтиToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (MajorObject.SaveTextFileNameExists())
+
+                MajorObject.SaveToTextFile(MajorObject.ReadSaveTextFileName(), dgwOpen);
+            else
+                зберегтиЯкToolStripMenuItem1_Click(sender, e);
+        }
+
+        private void LabelQueue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void відкритиToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog o = new OpenFileDialog();
+
+            o.Filter = @"Текстовий файл (*.txt)|*.txt|Текстовий файл
+TXT(*.txt)|*.txt|CSV-файл (*.csv)|*.csv|Bin-файл (*.bin)|*.bin";
+
+            if (o.ShowDialog() == DialogResult.OK)
+            {
+                richTextBox1.Text = File.ReadAllText(o.FileName, Encoding.Default);
             }
         }
     }
