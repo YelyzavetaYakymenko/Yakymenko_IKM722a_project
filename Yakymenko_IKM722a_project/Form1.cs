@@ -13,6 +13,7 @@ namespace Yakymenko_IKM722a_project
     public partial class Form1 : Form
     {
         private bool Mode;
+        private MajorWork MajorObject; // Створення об'єкта класу MajorWork
         public Form1()
         {
             InitializeComponent();
@@ -27,6 +28,10 @@ namespace Yakymenko_IKM722a_project
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            About A = new About(); 
+            A.tAbout.Start();
+            A.ShowDialog(); 
+            MajorObject = new MajorWork();
             this.Mode = true;
         }
 
@@ -47,7 +52,10 @@ namespace Yakymenko_IKM722a_project
                 tClock.Stop();
                 bStart.Text = "Пуск";// зміна тексту на кнопці на "Пуск"
                 this.Mode = true;
-               
+                MajorObject.Write(tbInput.Text);// Запис даних у об'єкт
+                MajorObject.Task();// Обробка даних
+                label1.Text = MajorObject.Read();// Відображення результату
+
             }
         }
 
