@@ -17,11 +17,30 @@ namespace Yakymenko_IKM722a_project
     {
         private bool Mode;
         private MajorWork MajorObject; // Створення об'єкта класу MajorWork
+        ToolStripLabel dateLabel;
+        ToolStripLabel timeLabel;
+        ToolStripLabel infoLabel;
+        Timer timer;
         public Form1()
         {
             InitializeComponent();
+            infoLabel = new ToolStripLabel();
+            infoLabel.Text = "Поточні дата та час:";
+            dateLabel = new ToolStripLabel();
+            timeLabel = new ToolStripLabel();
+            statusStrip1.Items.Add(infoLabel);
+            statusStrip1.Items.Add(dateLabel);
+            statusStrip1.Items.Add(timeLabel);
+            timer = new Timer() { Interval = 1000 };
+            timer.Tick += timer_Tick;
+            timer.Start();
         }
+        void timer_Tick(object sender, EventArgs e)
+        {
+            dateLabel.Text = DateTime.Now.ToLongDateString();
 
+            timeLabel.Text = DateTime.Now.ToLongTimeString();
+        }
         private void tClock_Tick(object sender, EventArgs e)
         {
             tClock.Stop();
@@ -39,6 +58,8 @@ namespace Yakymenko_IKM722a_project
             A.ShowDialog(); // відображення діалогового вікна About
             this.Mode = true;
            
+            toolTip1.SetToolTip(bSearch, "Натисніть на кнопку для пошуку"); 
+            toolTip1.IsBalloon = true;
         }
 
             private void bStart_Click(object sender, EventArgs e)
@@ -101,6 +122,7 @@ namespace Yakymenko_IKM722a_project
         private void проПрограмуToolStripMenuItem_Click(object sender, EventArgs e)
         {
             About A = new About();
+            A.progressBar1.Hide();
             A.ShowDialog();
         }
 
@@ -181,6 +203,11 @@ namespace Yakymenko_IKM722a_project
         private void bSearch_Click(object sender, EventArgs e)
         {
             MajorObject.Find(tbSearch.Text); //пошук
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
