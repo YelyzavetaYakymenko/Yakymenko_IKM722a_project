@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Yakymenko_IKM722a_project
 {
@@ -28,14 +30,17 @@ namespace Yakymenko_IKM722a_project
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            About A = new About(); 
-            A.tAbout.Start();
-            A.ShowDialog(); 
             MajorObject = new MajorWork();
+            MajorObject.SetTime();
+          
+            About A = new About(); // створення форми About
+            A.tAbout.Start();
+            A.ShowDialog(); // відображення діалогового вікна About
             this.Mode = true;
+           
         }
 
-        private void bStart_Click(object sender, EventArgs e)
+            private void bStart_Click(object sender, EventArgs e)
         {
             if (Mode)
             {
@@ -59,9 +64,7 @@ namespace Yakymenko_IKM722a_project
             }
         }
 
-      
-
-        private void tbInput_KeyPress(object sender, KeyPressEventArgs e)
+              private void tbInput_KeyPress(object sender, KeyPressEventArgs e)
         {
             tClock.Stop();
             tClock.Start();
@@ -76,6 +79,17 @@ namespace Yakymenko_IKM722a_project
                 tClock.Start();
                 e.KeyChar = (char)0;
             }
+    
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+                string s;
+                s = (System.DateTime.Now - MajorObject.GetTime()).ToString();
+                MessageBox.Show(s, "Час роботи програми"); // Виведення часу роботи програми і повідомлення "Час роботи програми" на екран
+            
         }
     }
+
 }

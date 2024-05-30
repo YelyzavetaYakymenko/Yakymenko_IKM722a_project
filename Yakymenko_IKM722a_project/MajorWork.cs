@@ -10,6 +10,7 @@ namespace Yakymenko_IKM722a_project
     {
         // Вміст робочого об'єкта
         // Поля
+        private System.DateTime TimeBegin; // час початку роботи програми
         private string Data; //вхідні дані
         private string Result; // Поле результату
                                // Методи
@@ -20,6 +21,15 @@ namespace Yakymenko_IKM722a_project
         public string Read()
         {
             return this.Result;// метод відображення результату
+        }
+        public void SetTime() // метод запису часу початку роботи програми
+        {
+            this.TimeBegin = System.DateTime.Now;
+
+        }
+        public System.DateTime GetTime() // Метод отримання часу завершення програми
+        {
+            return this.TimeBegin;
         }
         public void Task() // метод реалізації програмного завдання
         {
