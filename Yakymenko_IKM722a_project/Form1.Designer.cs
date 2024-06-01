@@ -74,22 +74,22 @@
             this.Enqueue = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.port = new System.IO.Ports.SerialPort(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwOpen)).BeginInit();
@@ -110,21 +110,22 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label1.Location = new System.Drawing.Point(323, 128);
+            this.label1.Location = new System.Drawing.Point(291, 124);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 25);
+            this.label1.Size = new System.Drawing.Size(245, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Hello";
+            this.label1.Text = "Текст без повторів літер";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tbInput
             // 
             this.tbInput.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbInput.Enabled = false;
-            this.tbInput.Location = new System.Drawing.Point(328, 168);
+            this.tbInput.Location = new System.Drawing.Point(318, 167);
             this.tbInput.Name = "tbInput";
             this.tbInput.Size = new System.Drawing.Size(172, 20);
             this.tbInput.TabIndex = 1;
+            this.tbInput.Text = "Введіть текст від 100 символів...";
             this.tbInput.TextChanged += new System.EventHandler(this.tbInput_TextChanged);
             this.tbInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbInput_KeyPress);
             // 
@@ -412,6 +413,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.Peek_q);
             this.splitContainer1.Panel2.Controls.Add(this.Queuetb);
             this.splitContainer1.Panel2.Controls.Add(this.Enqueue);
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(780, 395);
             this.splitContainer1.SplitterDistance = 379;
             this.splitContainer1.TabIndex = 0;
@@ -476,12 +478,12 @@
             // QueueText
             // 
             this.QueueText.AutoSize = true;
-            this.QueueText.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.QueueText.Location = new System.Drawing.Point(170, 80);
+            this.QueueText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.QueueText.Location = new System.Drawing.Point(183, 298);
             this.QueueText.Name = "QueueText";
-            this.QueueText.Size = new System.Drawing.Size(67, 28);
+            this.QueueText.Size = new System.Drawing.Size(38, 13);
             this.QueueText.TabIndex = 12;
-            this.QueueText.Text = "Черга";
+            this.QueueText.Text = "label 2";
             this.QueueText.Click += new System.EventHandler(this.LabelQueue_Click);
             // 
             // Dequeue
@@ -497,11 +499,12 @@
             // LabelQueue
             // 
             this.LabelQueue.AutoSize = true;
-            this.LabelQueue.Location = new System.Drawing.Point(184, 298);
+            this.LabelQueue.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.LabelQueue.Location = new System.Drawing.Point(154, 80);
             this.LabelQueue.Name = "LabelQueue";
-            this.LabelQueue.Size = new System.Drawing.Size(35, 13);
+            this.LabelQueue.Size = new System.Drawing.Size(67, 28);
             this.LabelQueue.TabIndex = 11;
-            this.LabelQueue.Text = "label2";
+            this.LabelQueue.Text = "Черга";
             // 
             // Peek_q
             // 
@@ -563,6 +566,64 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Налаштування порту";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(25, 177);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(107, 13);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Керування потоком";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(25, 135);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Стопові біти";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(25, 98);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Парність";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(25, 60);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Біти даних";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(25, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Швидкість (біт/с)";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(140, 237);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Старт";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox2
             // 
@@ -659,6 +720,15 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(25, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Оберіть порт";
+            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -684,73 +754,6 @@
             this.statusStrip1.Size = new System.Drawing.Size(800, 22);
             this.statusStrip1.TabIndex = 8;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // button1
-            // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(140, 237);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Старт";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Швидкість (біт/с)";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 60);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Біти даних";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 98);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Парність";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(25, 135);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Стопові біти";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(25, 177);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(107, 13);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Керування потоком";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Оберіть порт";
             // 
             // port
             // 

@@ -40,20 +40,31 @@ namespace Yakymenko_IKM722a_project
         {
             return this.TimeBegin;
         }
-        public void Task() // метод реалізації програмного завдання
+        public void Task()
         {
-            if (this.Data.Length > 5)
-            {
-                this.Result = Convert.ToString(true);
 
-            }
-            else
+            try
             {
-                this.Result = Convert.ToString(false);
+                if (this.Data.Length != 0)
+                {
+                    if (this.Data.Length <= 100)
+                    {
+                        this.Result = new string(this.Data.Distinct().ToArray());
+                        this.Modify = true;
+                    }
+                    else
+                    {
+                        this.Result = null;
+                        MessageBox.Show("Введіть текст довжиною до 100 літер", "Попередження!");
+                    }
+                }
             }
-            this.Modify = true;
+            catch
+            {
+                MessageBox.Show("Порожній рядок", "Помилка!");
+            }
         }
-        public void SaveToFile() // Запис даних до файлу
+            public void SaveToFile() // Запис даних до файлу
         {
             if (!this.Modify)
                 return;

@@ -103,16 +103,16 @@ namespace Yakymenko_IKM722a_project
         {
             tClock.Stop();
             tClock.Start();
-            if ((e.KeyChar >= '0') & (e.KeyChar <= '9') | (e.KeyChar == (char)8))
-            {
-                return;
-            }
-            else
+            if ((e.KeyChar >= '0') & (e.KeyChar <= '9'))
             {
                 tClock.Stop();
                 MessageBox.Show("Неправильний символ", "Помилка");
                 tClock.Start();
                 e.KeyChar = (char)0;
+            }
+            else
+            {
+                return;
             }
     
         }
@@ -543,6 +543,11 @@ TXT(*.txt)|*.txt|CSV-файл (*.csv)|*.csv|Bin-файл (*.bin)|*.bin";
             {
                 SetText(InputData);
             }
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
     }

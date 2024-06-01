@@ -51,9 +51,11 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(345, 127);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 78);
+            this.label1.Size = new System.Drawing.Size(379, 104);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Розробила \r\nСтудентка групи ІКМ\r\nЯкименко Є.О. \r\n\r\nТекст завдання \r\nтекст\r\n";
+            this.label1.Text = "Розробила \r\nСтудентка групи ІКМ\r\nЯкименко Є.О. \r\n\r\nТекст завдання: \r\nВводиться те" +
+    "кст довжиною до 100 літер. \r\nНадрукувати текст,видаливши з нього повторні входже" +
+    "ння кожної літери\r\n\r\n";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tAbout
